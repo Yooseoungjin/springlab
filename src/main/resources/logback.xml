@@ -22,7 +22,7 @@
         </rollingPolicy>
     </appender>
 
-    <root level="INFO">
+    <root level="INFO"> <!--실제 배포전에는 info를 Error로 변경할 것-->
         <appender-ref ref="STDOUT" />
     </root>
 

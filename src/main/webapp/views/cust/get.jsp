@@ -5,31 +5,34 @@
 <script>
     // 화면에 접속 되면 로그인폼 객체에 이닛을 출력해라
     $(function (){
-        register_form.init();
+
     });
 </script>
 
 <div class="col-sm-8 text-left">
   <div class="container col-sm-8">
-      <h1>Register Page</h1></br>
-      <form id="register_form" class="form-horizontal well">
+      <h1>Detail Page</h1></br>
+      <form id="update_form" class="form-horizontal well">
           <div class="form-group">
-              <input type="ID" class="form-control" id="id" name="id" placeholder="Make Your ID" >
+              <input type="ID" class="form-control" id="id" name="id" value="${gcust.id}" readonly>
           </div>
 
           <div class="form-group">
-              <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Enter password" >
+              <input type="password" class="form-control" id="pwd" name="pwd" value="${gcust.pwd}" >
           </div>
 
           <div class="form-group">
-              <input type="name" class="form-control" id="name" name="name" placeholder="name" >
+              <input type="name" class="form-control" id="name" name="name" value="${gcust.name}" >
           </div>
 
               <div>
-                  <button type="button" id="register_btn" class="btn btn-primary">Regsiter</button>
+                  <button type="button" id="Update_btn" class="btn btn-primary">Update</button>
+              </div>
+
+              <div>
+                  <button type="button" id="Remove_btn" class="btn btn-primary">Remove</button>
               </div>
       </form>
-
 
   </div>
 </div>

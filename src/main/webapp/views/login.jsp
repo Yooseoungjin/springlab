@@ -3,22 +3,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 <script>
-    let login_form = {
-        init:function (){
-            $('#login_btn').click(function (){
-                login_form.send();
-            });
-        },
-        send:function (){
-            $('#login_form').attr({
-                'action':'/loginimpl',
-                'method':'post'
-            });
-            $('#login_form').submit();
-        }
-    };
-
-    // 화면에 접속 되면 로그인폼 객체에 이닛을 출력해라
+     // 화면에 접속 되면 로그인폼 객체에 이닛을 출력해라
     $(function (){
         login_form.init();
     });
@@ -31,7 +16,7 @@
 
           <form id="login_form" class="form-horizontal well">
               <div class="form-group">
-                  <input type="ID" class="form-control" id="ID" name="ID" placeholder="Enter Your ID" >
+                  <input type="ID" class="form-control" id="id" name="id" placeholder="Enter Your ID" >
               </div>
 
               <div class="form-group">
@@ -41,7 +26,6 @@
               <div class="btns">
                   <button type="button" id="login_btn" class="btn btn-primary">Login</button>
               </div>
-
           </form>
 
           </div>
