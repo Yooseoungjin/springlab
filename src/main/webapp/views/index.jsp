@@ -12,6 +12,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="/js/index0421.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ec38c6135c4252732539ced707a33ad6"></script>
+
     <style>
         /* Remove the navbar's default margin-bottom and rounded borders */
         .navbar {
@@ -62,9 +64,11 @@
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
                 <li><a href="/jsp">JSP</a></li>
+                <li><a href="/ajax">AJAX</a></li>
+                <li><a href="/map">MAP</a></li>
+                <li><a href="/chart">CHART</a></li>
                 <li><a href="/cust">Cust</a></li>
                 <li><a href="/item">Item</a></li>
-
                 <c:if test="${logincust != null}"> <%--로그인커스트(로그인한경우) 에만 보이게 해라--%>
                     <li><a href="#">Contact</a></li>
                 </c:if>
