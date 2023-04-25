@@ -1,6 +1,7 @@
 package com.kbstar.controller;
 
 import com.kbstar.dto.Cust;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -9,19 +10,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
+@Slf4j /*로그 찍는 골뱅이*/
 @Controller
 @RequestMapping("/cust") // /cust를 넣음으으로 기본적으로 주소에 /cust가 셋팅됨
 public class CustController {
 
-    Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
+    // Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
     String dir = "cust/"; //폴더명을 변수로 넣기
-
     //127.0.0.1/cust
     @RequestMapping("")
     public String main(Model model){
         model.addAttribute("left",dir+"left");
         model.addAttribute("center",dir+"center");
+        //logger.info("----------------------------------------------------------------------------");
+        Random r= new Random();
+        int inx = r.nextInt(1000)+1;
+        log.info(inx+""); /*String 타입만 가능해서 +""추가함*/
         return "index";
     }
 
