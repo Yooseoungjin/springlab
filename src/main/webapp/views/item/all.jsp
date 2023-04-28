@@ -4,7 +4,7 @@
 
 <style>
     .medium_img{
-        width:100px;
+        width:200px;
     }
 </style>
 

@@ -89,7 +89,6 @@ public class ChartImplController {
         return ja;
     }
 
-
     @RequestMapping("/chart05")
     public Object chart05(String year){
         JSONArray ja = new JSONArray();

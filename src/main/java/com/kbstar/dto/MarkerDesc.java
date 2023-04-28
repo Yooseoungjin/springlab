@@ -8,13 +8,12 @@ import lombok.*;
 @Setter
 @Getter
 @ToString
-public class Marker {
+public class MarkerDesc {
     // 속성값만 입력해도 가능.
     private int id;
-    private String title;
-    private String target;
-    private double lat;
-    private double lng;
-    private String img;
-    private String loc;
+    private int marker_id;
+    private String item;
+    private int price;
+    private String imgname;
+
 }

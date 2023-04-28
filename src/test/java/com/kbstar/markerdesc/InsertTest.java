@@ -1,12 +1,13 @@
-package com.kbstar.marker;
+package com.kbstar.markerdesc;
 
-import com.kbstar.dto.Marker;
-import com.kbstar.service.MarkerService;
+import com.kbstar.dto.MarkerDesc;
+import com.kbstar.service.MarkerdescService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DuplicateKeyException;
+
 /**
  * 4.27 정인보 insert 테스트 완료
  * 테스트 id : 200 / 부잣집
@@ -15,14 +16,14 @@ import org.springframework.dao.DuplicateKeyException;
 @SpringBootTest
 class InsertTest {
     @Autowired
-    MarkerService service;
+    MarkerdescService service;
     @Test
     void contextLoads() {
 
-        Marker obj = new Marker(200,"부잣집","http://www.kbstar.com",  38.22, 126.5555,"bread.jpg", "T");
+        MarkerDesc obj = new MarkerDesc(0,108,"제삿상",1000000,"yang7");
         try {
             service.register(obj);
-            log.info("------- Marker(맛집추천) 정보 신규! 등록 완료 -------");
+            log.info("------- 신규 메뉴 등록 완료!");
         } catch (Exception e) { // 오류 예외처리(자동)
             //throw new RuntimeException(e);
             if(e instanceof DuplicateKeyException){
