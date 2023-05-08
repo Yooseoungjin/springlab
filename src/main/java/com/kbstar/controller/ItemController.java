@@ -1,7 +1,10 @@
 package com.kbstar.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.kbstar.dto.Cart;
+import com.kbstar.dto.Cust;
 import com.kbstar.dto.Item;
+import com.kbstar.service.CartService;
 import com.kbstar.service.ItemService;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -12,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,6 +26,8 @@ import java.util.List;
 public class ItemController {
     @Autowired
     ItemService itemService;
+    @Autowired
+    CartService cartService;
     String dir = "item/"; //폴더명을 변수로 넣기
 
     //127.0.0.1/cust
@@ -39,9 +45,19 @@ public class ItemController {
         return "index";
     }
 
+    @RequestMapping("/get")
+    public String get(Model model,Integer id) throws Exception {
+        Item item = null;
+        item = itemService.get(id);
+        model.addAttribute("gitem",item);
+        model.addAttribute("left",dir+"left");
+        model.addAttribute("center",dir+"get");
+        return "index";
+    }
+
     @RequestMapping("/all")
     public String all(Model model) throws Exception {
-        List<Item> list = new ArrayList<>();
+        List<Item> list = null;
         try {
             list = itemService.get();
         } catch (Exception e) {
@@ -70,4 +86,33 @@ public class ItemController {
         return "index";
     }
 
-}
+    @RequestMapping("/allcart")
+    public String allcart(Model model, String id) throws Exception {
+        List<Cart> list = null;
+        try {
+            list = cartService.getmycart(id);
+        } catch (Exception e) {
+            throw new Exception("시스템 장애: ER0003");
+        }
+        model.addAttribute("allcart", list);
+        model.addAttribute("center", "cart");
+        return "index";
+    }
+    @RequestMapping("/addcart")
+    public String addcart(Model model,Cart cart) throws Exception {
+        cartService.register(cart);
+//        model.addAttribute("center",dir+"cart");
+        return "redirect:/item/allcart?id="+cart.getCust_id();
+    }
+
+    @RequestMapping("/delcart")
+    public String delcart(Model model, Integer id, HttpSession session) throws Exception {
+        cartService.remove(id);
+        if(session != null){
+            Cust cust = (Cust) session.getAttribute("logincust");
+            return "redirect:/item/allcart?id="+cust.getId();
+        }
+        return "redirect:/";
+
+    }
+};

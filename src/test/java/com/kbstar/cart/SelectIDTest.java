@@ -18,7 +18,7 @@ class SelectIDTest {
     void contextLoads() {
         List<Cart> list = null;
         try {
-            list = service.getmycart("id09");
+            list = service.getmycart("id06");
 //            for (Cust obj:list){
 //                log.info(obj.toString());
 //            }

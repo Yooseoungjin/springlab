@@ -99,6 +99,13 @@
                        <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/item/allcart?id=${logincust.id}">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
                         <li><a href="/custinfo?id=${logincust.id}">${logincust.id}</a></li>
                     </ul>
                 </c:otherwise>

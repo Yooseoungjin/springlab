@@ -21,7 +21,7 @@ class InsertTest {
     CartService service;
     @Test
     void contextLoads() {
-        Cart obj = new Cart("id03", 101, 444);
+        Cart obj = new Cart("id01", 118, 2);
 
         try {
             service.register(obj);
@@ -29,9 +29,9 @@ class InsertTest {
             service.get();
         } catch (Exception e) {
             if(e instanceof DuplicateKeyException){
-                log.info("아이디가 중복되었습니다===========================");
+                log.info("아이디가 중복되었습니다================================================================================");
             }else {
-                log.info("시스템 장애입니다.==============================");
+                log.info("시스템 장애입니다.===================================================================================");
                 e.printStackTrace();
             }
         }

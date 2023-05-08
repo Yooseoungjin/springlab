@@ -85,7 +85,7 @@ public class MainController {
             cust = custService.get(id);
             if(cust != null && encoder.matches(pwd,cust.getPwd())){
                 nextPage = "loginok";
-                session.setMaxInactiveInterval((100000));
+                session.setMaxInactiveInterval((10000000));
                 session.setAttribute("logincust",cust); /*셋어트리뷰함수를 이용해서리 커스트를 로그인커스트객체로 넣어준다*/
             }
         } catch (Exception e) {
@@ -115,6 +115,12 @@ public class MainController {
     @RequestMapping("/register")
     public String register(Model model) {
         model.addAttribute("center", "register");
+        return "index";
+    }
+
+    @RequestMapping("/pic")
+    public String pic(Model model) {
+        model.addAttribute("center", "pic");
         return "index";
     }
 }
