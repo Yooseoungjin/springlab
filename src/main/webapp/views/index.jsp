@@ -26,6 +26,10 @@
     <script src="https://code.highcharts.com/modules/pyramid3d.js"></script>
     <script src="https://code.highcharts.com/modules/data.js"></script>
 
+    <%--web socket--%>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+
     <style>
         /* Remove the navbar's default margin-bottom and rounded borders */
         .navbar {
