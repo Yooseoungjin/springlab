@@ -3,8 +3,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <style>
     #getdata > div{
-        width:500px;
-        border: 2px solid red;
+    width:500px;
+    border: 2px solid red;
     }
 </style>
 
