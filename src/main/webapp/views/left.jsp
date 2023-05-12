@@ -8,4 +8,6 @@
     </c:if>
     <p><a href="/cfr1">CFR1</a></p>
     <p><a href="/cfr2">CFR2</a></p>
+    <p><a href="/ocr1">ocr1</a></p>
+    <p><a href="/ocr2">ocr2</a></p>
 </div>
