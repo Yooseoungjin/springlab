@@ -80,7 +80,6 @@ public class ItemController {
         }
         model.addAttribute("target","item");
         model.addAttribute("cpage",p);
-
         model.addAttribute("left",dir+"left");
         model.addAttribute("center",dir+"allpage");
         return "index";

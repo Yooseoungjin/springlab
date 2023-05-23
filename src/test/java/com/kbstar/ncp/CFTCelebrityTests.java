@@ -16,12 +16,13 @@ class CFTCelebrityTests {
 
     @Value("${uploadimgdir}")
     String imgpath;
-
+    @Autowired
+    CFRCelebrityUtil cfrCelebrityUtil;
     @Test
     void contextLoads() throws ParseException {
         String imgname = "ma.jpg";
         JSONObject result =
-                (JSONObject) CFRCelebrityUtil.getResult(imgpath,imgname);
+                (JSONObject) cfrCelebrityUtil.getResult(imgpath,imgname);
         log.info(result.toJSONString());
     }
 }
