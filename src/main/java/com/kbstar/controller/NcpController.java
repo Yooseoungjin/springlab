@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +22,9 @@ import java.util.Map;
 @Controller
 public class NcpController {
 
+
+    @Autowired
+    CFRCelebrityUtil cfrCelebrityUtil;
     @Value("${uploadimgdir}")
     String imgpath;
     @RequestMapping("/cfr1impl")
@@ -31,7 +35,7 @@ public class NcpController {
         //NPC에게 물어본다
         String imgname = ncp.getImg().getOriginalFilename();
         JSONObject result =
-                (JSONObject) CFRCelebrityUtil.getResult(imgpath,imgname);
+                (JSONObject) cfrCelebrityUtil.getResult(imgpath,imgname);
         log.info(result.toJSONString());
 
         JSONArray faces = (JSONArray)result.get("faces");

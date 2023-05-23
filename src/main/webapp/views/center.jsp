@@ -30,7 +30,7 @@
         }
     };
     $(function (){
-        // center.init();
+        center.init();
     });
 </script>
 
