@@ -10,4 +10,9 @@
     <p><a href="/cfr2">CFR2</a></p>
     <p><a href="/ocr1">ocr1</a></p>
     <p><a href="/ocr2">ocr2</a></p>
+    <p><a href="/cal1">cal1</a></p>
+    <p><a href="/cal2">cal2</a></p>
+    <p><a href="/cal3">cal3</a></p>
+    <p><a href="/cal4">cal4</a></p>
+    <p><a href="/cal5">cal5</a></p>
 </div>

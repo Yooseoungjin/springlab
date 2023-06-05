@@ -30,9 +30,11 @@ public class MainController {
     Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     @RequestMapping("/")
-    public String main(Model model) throws Exception {
-        String result = WeatherUtil.getWeather1("108");
-        model.addAttribute("weatherinfo",result);
+    public Object main(Model model) throws Exception {
+//        String result = WeatherUtil.getWeather1("109");
+//        model.addAttribute("weatherinfo",result);
+//        Object result = testController.todayFlower();
+//        model.addAttribute("weatherinfo",result);
         return "index";
     }
 

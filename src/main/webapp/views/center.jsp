@@ -38,7 +38,7 @@
     <h1><spring:message code="site.title"/></h1>
     <p><spring:message code="site.content"/></p>
     <hr>
-    <textarea id="w1" cols="100" rows="10">${weatherinfo}</textarea>
+    ${weatherinfo}
     <hr>
     <div id="w2"> </div>
 </div>

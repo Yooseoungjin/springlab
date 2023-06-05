@@ -16,11 +16,11 @@
 
           <form id="login_form" class="form-horizontal well">
               <div class="form-group">
-                  <input type="ID" class="form-control" id="id" name="id" placeholder="Enter Your ID" >
+                  <input type="ID" class="form-control" id="id" name="id" placeholder="Enter Your ID" value="id111">
               </div>
 
               <div class="form-group">
-                  <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Enter password" >
+                  <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Enter password" value="11">
               </div>
 
               <div class="btns">
