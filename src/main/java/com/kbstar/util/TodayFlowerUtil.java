@@ -1,9 +1,7 @@
-package com.kbstar.controller;
+package com.kbstar.util;
 
-import lombok.extern.slf4j.Slf4j;
 import org.json.simple.JSONObject;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.InputSource;
@@ -17,9 +15,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-@Slf4j
-@RestController
-public class TodayFlowerController {
+public class TodayFlowerUtil {
 
     @RequestMapping("/test")
     public static Object todayFlower(String date) throws Exception {

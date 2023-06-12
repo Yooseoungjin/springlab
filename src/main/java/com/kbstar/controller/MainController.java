@@ -2,7 +2,7 @@ package com.kbstar.controller;
 
 import com.kbstar.dto.Cust;
 import com.kbstar.service.CustService;
-import com.kbstar.util.WeatherUtil;
+import com.kbstar.util.TodayFlowerUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,7 +47,7 @@ public class MainController {
         int dayOfYear = SeoulNow.getDayOfYear()+1; //정확히 하려면 2월29일을 60으로 표기하니...3월1일 이후 부터만 +1을 해줘야함
         String date = Integer.toString(dayOfYear);
         
-        Object result = TodayFlowerController.todayFlower(date);
+        Object result = TodayFlowerUtil.todayFlower(date);
         model.addAttribute("todayFlower", result);
         model.addAttribute("center", "todayflower");
         return "index";
