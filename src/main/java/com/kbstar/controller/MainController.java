@@ -14,6 +14,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
+import java.time.LocalDate;
+import java.time.ZoneId;
 
 @Slf4j
 @Controller
@@ -31,8 +33,23 @@ public class MainController {
 
     @RequestMapping("/")
     public Object main(Model model) throws Exception {
-        String result = WeatherUtil.getWeather1("109");
-        model.addAttribute("weatherinfo",result);
+/*        String result = WeatherUtil.getWeather1("109");
+        model.addAttribute("weatherinfo",result);*/
+        return "index";
+    }
+
+    public class CurrentDateTime {
+        LocalDate SeoulNow = LocalDate.now(ZoneId.of("Asia/Seoul"));
+    }
+    @RequestMapping("/todayflower")
+    public String todayFlower(Model model) throws Exception {
+        LocalDate SeoulNow = LocalDate.now(ZoneId.of("Asia/Seoul"));
+        int dayOfYear = SeoulNow.getDayOfYear()+1; //정확히 하려면 2월29일을 60으로 표기하니...3월1일 이후 부터만 +1을 해줘야함
+        String date = Integer.toString(dayOfYear);
+        
+        Object result = TodayFlowerController.todayFlower(date);
+        model.addAttribute("todayFlower", result);
+        model.addAttribute("center", "todayflower");
         return "index";
     }
 

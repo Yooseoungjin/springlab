@@ -15,7 +15,7 @@ public class GptTest {
     ChatgptService chatgptService;
     @Test
     void contextLoads() throws ParseException {
-        String str = chatgptService.sendMessage("한국에서 가장 유명한것이 뭐니");
+        String str = chatgptService.sendMessage("뉴욕 날씨는?");
         log.info("------------------------------------");
         log.info(str);
         String imageUrl = chatgptService.imageGenerate("boy");
