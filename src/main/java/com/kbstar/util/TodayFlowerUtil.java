@@ -40,7 +40,7 @@ public class TodayFlowerUtil {
         }
         rd.close();
         conn.disconnect();
-        System.out.println(sb.toString());
+/*        System.out.println(sb.toString());*/
 
         // XML 파싱
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -68,7 +68,7 @@ public class TodayFlowerUtil {
             result.put("flowerName", flowerName);
             result.put("flowerMeaning", flowerMeaning);
             result.put("fContent", fContent);
-            result.put("fMonthDay", fMonth+"월"+"-"+fDay+"일");
+            result.put("fMonthDay", fMonth+"월"+" "+fDay+"일");
             result.put("imgUrl1", imgUrl1);
             result.put("imgUrl2", imgUrl2);
             result.put("imgUrl3", imgUrl3);
