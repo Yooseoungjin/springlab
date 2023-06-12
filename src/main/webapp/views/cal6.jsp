@@ -2,7 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script>
 
-
     var calFunc ={
 
         calcDate: function(arg,calendar){
@@ -93,6 +92,16 @@
 
 
         var calendar = new FullCalendar.Calendar($('#calendar')[0], {
+
+            googleCalendarApiKey : "AIzaSyBnIBQx51YvOL0_B_Op_LpR5tn_lC1HePE",
+            eventSources :[
+                {
+                    googleCalendarId : 'ko.south_korea.official#holiday@group.v.calendar.google.com'
+                    , color: 'yellow'   // an option!
+                    , textColor: 'red' // an option!
+                }
+            ],
+
             locale:'ko',
             timeZone: 'Asia/Seoul',
             height: '580px', // calendar 높이 설정
@@ -152,7 +161,7 @@
                 var param = "";
                 param+="start="+start;
                 param+="&end="+end;
-
+                alert(param);
                 $.ajax({
                     url: "/getcal3",
                     type: "get",

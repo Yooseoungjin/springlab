@@ -90,7 +90,7 @@
     <div class="container">
         <div class="row content">
             <div class="col-sm-8  text-left ">
-                    <div id='calendar-container'>
+                    <div id='calendar-container' style="margin-top: 20px">
                         <div id='calendar'></div>
                     </div>
             </div>

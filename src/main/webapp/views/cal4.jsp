@@ -1,10 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<style>
+    .fc-day-sun a {
+        color: red;
+    }
+
+    .fc-day-sat a {
+        color: blue;
+    }
+</style>
+
 <script>
-
-
     var calFunc ={
-
         calcDate: function(arg,calendar){
             var rObj = new Object();
             var start  = null;
@@ -93,6 +101,16 @@
 
 
         var calendar = new FullCalendar.Calendar($('#calendar')[0], {
+
+            googleCalendarApiKey : "AIzaSyBnIBQx51YvOL0_B_Op_LpR5tn_lC1HePE",
+            eventSources :[
+                {
+                    googleCalendarId : 'ko.south_korea.official#holiday@group.v.calendar.google.com'
+                    , color: 'yellow'   // an option!
+                    , textColor: 'red' // an option!
+                }
+            ],
+
             locale:'ko',
             timeZone: 'Asia/Seoul',
             allDay:false,
@@ -110,10 +128,14 @@
             //navLinks: true, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
             editable: true, // 수정 가능
             selectable: true, // 달력 일자 드래그 설정가능
+            selectLongPressDelay:100, //스마트폰으로 누르고 있는 시간을 설정 숫자를 높게 잡으면 오래 누루고있어야 동작함
             nowIndicator: true, // 현재 시간 마크
            // dayMaxEvents: true, // 이벤트가 오버되면 높이 제한 (+ 몇 개식으로 표현)
+
+           //▼ cal3의 dateClick: function(info)는 info에서 바로 우리가 원하는 날짜 포맷을 가져오지만
+            // ca4는 그렇지 못 해서 함수로 우리가 원하는 날짜를 만들어야함
             select: function(arg) {
-                var xObj = calFunc.calcDate(arg,calendar);
+                var xObj = calFunc.calcDate(arg,calendar); // claFunc 함수에 넣어서 날짜 포맷을 우리가 원하는 2023-06-07로 만들어서 xobj 객체에 넣는다
 
                 const date = new Date();
 

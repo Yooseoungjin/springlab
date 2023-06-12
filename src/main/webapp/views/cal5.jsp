@@ -86,6 +86,15 @@
 
         var calendar = new FullCalendar.Calendar($('#calendar')[0], {
 
+            googleCalendarApiKey : "AIzaSyBnIBQx51YvOL0_B_Op_LpR5tn_lC1HePE",
+            eventSources :[
+                {
+                    googleCalendarId : 'ko.south_korea.official#holiday@group.v.calendar.google.com'
+                    , color: 'yellow'   // an option!
+                    , textColor: 'red' // an option!
+                }
+            ],
+
             locale:'ko',
             timeZone: 'Asia/Seoul',
             height: '580px', // calendar 높이 설정
@@ -97,7 +106,7 @@
                 center: 'title',
                 right: 'today'
             },
-            businessHours: true,
+            businessHours: true, //토,일을 회색으로 변형
 
            // initialView: 'dayGridMonth', // 초기 로드 될때 보이는 캘린더 화면(기본 설정: 달)
             //initialDate: '2022-11-01', // 초기 날짜 설정 (설정하지 않으면 오늘 날짜가 보인다.)

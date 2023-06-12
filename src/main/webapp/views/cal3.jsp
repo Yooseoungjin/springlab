@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<style>
+    .fc-day-sun a {
+        color: red;
+    }
+
+    .fc-day-sat a {
+        color: blue;
+    }
+</style>
+
 <script>
     function set_time(time){
         $('#ttime').text(time+':00');
@@ -13,6 +24,15 @@
 
 
         var calendar = new FullCalendar.Calendar($('#calendar')[0], {
+            // ▼ 구글캘린더에서 공휴일 가져오는 코드!
+            googleCalendarApiKey : "AIzaSyBnIBQx51YvOL0_B_Op_LpR5tn_lC1HePE",
+            eventSources :[
+                {
+                    googleCalendarId : 'ko.south_korea.official#holiday@group.v.calendar.google.com'
+                    , color: 'yellow'   // an option!
+                    , textColor: 'red' // an option!
+                }
+            ],
 
             height: '580px', // calendar 높이 설정
             //expandColumns: true,
@@ -42,7 +62,7 @@
             },
 
             dateClick: function(info) {
-
+                // ▼요거는 오늘날짜를 가져온다
                 const date = new Date();
 
                 const year = date.getFullYear();
@@ -50,13 +70,13 @@
                 const day = ('0' + date.getDate()).slice(-2);
                 const dateStr = year + '-' + month + '-' + day;
 
+                // ▼요거는 오늘(dateStr)보다 이전날짜를 선택시 fail을 출력하게 하라
                 if(new Date(info.dateStr) < new Date(dateStr)){
                     alert('Fail');
                     return;
                 }
-
+                // ▼선택된 날짜를 #tdate에 텍스트 출력하라
                 $('#tdate').text(info.dateStr);
-
 
                 $('#ttime').text('');
                 $.ajax({
