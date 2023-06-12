@@ -31,8 +31,8 @@ public class MainController {
 
     @RequestMapping("/")
     public Object main(Model model) throws Exception {
-//        String result = WeatherUtil.getWeather1("109"); 왜 갑자기 안될까?
-//        model.addAttribute("weatherinfo",result);
+        String result = WeatherUtil.getWeather1("109");
+        model.addAttribute("weatherinfo",result);
         return "index";
     }
 

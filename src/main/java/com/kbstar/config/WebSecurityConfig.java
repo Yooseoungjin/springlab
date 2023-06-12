@@ -1,4 +1,4 @@
-package com.kbstar;
+package com.kbstar.config;
 /*패스워드 비밀화 만드는거, 다른써버에서도 접속 가능하게 만들어줌*/
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

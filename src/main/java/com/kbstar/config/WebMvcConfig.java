@@ -1,5 +1,6 @@
-package com.kbstar;
+package com.kbstar.config;
 
+import com.kbstar.LoginCheckFilter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
