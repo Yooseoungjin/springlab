@@ -76,9 +76,6 @@
         Image Name:<input type="text" name="imgname" id="imgname"><br>
         <button id="cfr_btn">CFR</button>
     </form>
-    <h2>${result.emotion}</h2>
-    <h2>${result.pose}</h2>
     <h2>${result.gender}</h2>
     <h2>${result.age}</h2>
-    ${yourlower.flowerName}
 </div>

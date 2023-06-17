@@ -3,6 +3,7 @@ package com.kbstar.controller;
 import com.kbstar.dto.Cust;
 import com.kbstar.service.CustService;
 import com.kbstar.util.TodayFlowerUtil;
+import com.kbstar.util.WeatherUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +22,7 @@ import java.time.ZoneId;
 @Controller
 public class MainController {
 
-    @Value("http://172.16.21.61:8088")
+    @Value("${adminserver}")
     String adminserver;
 
     @Autowired
@@ -33,8 +34,8 @@ public class MainController {
 
     @RequestMapping("/")
     public Object main(Model model) throws Exception {
-/*        String result = WeatherUtil.getWeather1("109");
-        model.addAttribute("weatherinfo",result);*/
+        String result = WeatherUtil.getWeather1("109");
+        model.addAttribute("weatherinfo",result);
         return "index";
     }
 
@@ -231,4 +232,9 @@ public class MainController {
         return "index";
     }
 
+    @RequestMapping("/s")
+    public String s(){
+
+        return "s";
+    }
 }

@@ -120,6 +120,11 @@ public class AjaxImplController {
         return  WeatherUtil.getWeather3("108");
     }
 
+    @RequestMapping("/weather3")
+    public Object weather3() throws Exception {
+        return  WeatherUtil.getWeather2("108");
+    }
+
     @RequestMapping("/getcal")
     public Object getcal(){
         List<Cal> list= new ArrayList<>();

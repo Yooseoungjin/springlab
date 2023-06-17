@@ -24,6 +24,10 @@
             $(result).each(function (index,item){ //배열안에 있는 객체 만큼 돌아간다.
                 txt +='<h5>';
                 txt += item.tm+'  '+'기온 '+item.ta;
+                txt += item.rn;
+                txt += item.m01Te;
+                txt += item.resultMsg;
+
                 txt +='<h5>';
             });
             $('#w2').html(txt);

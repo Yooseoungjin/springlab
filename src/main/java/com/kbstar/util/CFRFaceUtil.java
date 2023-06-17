@@ -14,8 +14,8 @@ public class CFRFaceUtil {
         String result = "";
 
         StringBuffer reqStr = new StringBuffer();
-        String clientId = "ipt0a6ffbn";//애플리케이션 클라이언트 아이디값";
-        String clientSecret = "wtvDbm4QbdlLZGRvXJQH2uwtpSAdrLse0Ah1bldc";//애플리케이션 클라이언트 시크릿값";
+        String clientId = "zskg2zjz76";//애플리케이션 클라이언트 아이디값";
+        String clientSecret = "ax2TAufwKVVdq7ThZL7xD8FaUM5wxp5okbRos154";//애플리케이션 클라이언트 시크릿값";
 
         try {
             String paramName = "image"; // 파라미터명은 image로 지정

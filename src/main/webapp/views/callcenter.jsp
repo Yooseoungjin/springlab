@@ -3,20 +3,6 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
 <style>
-    #all {
-        width: 400px;
-        height: 200px;
-        overflow: auto;
-        border: 2px solid red;
-    }
-
-    #me {
-        width: 400px;
-        height: 200px;
-        overflow: auto;
-        border: 2px solid blue;
-    }
-
     #to {
         width: 400px;
         height: 200px;
