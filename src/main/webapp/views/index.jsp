@@ -3,7 +3,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
-<html>
 <html lang="ko">
 <head>
     <title>유성진의 싸이트</title>
@@ -39,6 +38,7 @@
         .navbar {
             margin-bottom: 0;
             border-radius: 0;
+
         }
 
         /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -104,40 +104,116 @@
             transition: opacity 5s, transform 5s;
         }
 
+        /*!* 기본 색상 변수에 담기 *!*/
+        /*html {*/
+        /*    --color-texta: #1d1d1d;*/
+        /*    --color-textb: #fff;*/
+        /*}*/
+        /*!* 시스템 커서 안 보이게 숨기기 *!*/
+        /*body {*/
+        /*    cursor: none;*/
+        /*}*/
+        /*!* 커스텀 커서 스타일 정의해주기 *!*/
+        /*.cursor {*/
+        /*    width: 2rem;*/
+        /*    height: 2rem;*/
+        /*    border: 2px solid var(--color-texta);*/
+        /*    border-radius: 50%;*/
+        /*    position: absolute;*/
+        /*    z-index: 1000;*/
+        /*    transform: translate(-50%, -50%);*/
+        /*    pointer-events: none;*/
+        /*    transition: all 0.3s ease;*/
+        /*    transition-property: background, transform;*/
+        /*    transform-origin: 100% 100%;*/
+        /*    backdrop-filter: sepia(20%);*/
+        /*    background-size: cover;*/
+        /*}*/
+        /*.cursor-grow {*/
+        /*    transform: scale(2);*/
+        /*    background-color: white;*/
+        /*    z-index: 1000;*/
+        /*}*/
+
+        /* 점선이 들어갈 ::after(pseudo)요소 만들고 크기값 설정해주기*/
+        /*.gnb li a:hover::after {*/
+        /*    width: calc(100% - 2rem);*/
+        /*    height: 3px;*/
+        /*    background-size: contain; !* 배경 이미지(svg)가 알맞게 들어가도록*!*/
+        /*}*/
+        /*!* hover된 링크의 글자 색상 정의(하얀색)*!*/
+        /*!* .hovered-link 선택자명은 추후 JS로 추가할 예정!*!*/
+        /*.hovered-link {*/
+        /*    color: var(--color-textb) !important;*/
+        /*}*/
+        /*!* .gnb li a:hover::after의 svg에 배경이미지 지정!*!*/
+        /*.hovered-link::after {*/
+        /*    background-image: url("/uimg/kuk.jpg");*/
+        /*}*/
     </style>
 
     <script>
+// let cursor = {
+//     init: function () {
+//         let mouseCursor = document.querySelector(".cursor");
+//         let navLinks = document.querySelectorAll(".gnb li a"); //메뉴 링크
+//         //window 객체에 scroll & mouse 이벤트를 추가하고 cursor함수 실행되도록 함
+//         window.addEventListener("scroll", cursor);
+//         window.addEventListener("mousemove", cursor);
+//
+//         //커스텀 커서의 left값과 top값을 커서의 XY좌표값과 일치시킴
+//         function cursor(e) {
+//             mouseCursor.style.left = e.pageX + "px";
+//             mouseCursor.style.top = e.pageY - scrollY + "px";
+//         }
+//
+//         navLinks.forEach((link) => {
+//             link.addEventListener("mouseover", () => {
+//                 mouseCursor.classList.add("cursor-grow");
+//                 mouseCursor.style.zIndex = "-1";
+//                 link.classList.add("hovered-link");
+//             });
+//             link.addEventListener("mouseleave", () => {
+//                 mouseCursor.classList.remove("cursor-grow");
+//                 mouseCursor.style.zIndex = "1000";
+//                 link.classList.remove("hovered-link");
+//             });
+//         });
+//     }
+// }
 
-        let chatbtn = {
-            init:function(){
-                const scrollBtn = document.createElement("button");
-                scrollBtn.innerHTML = "chatbot";
-                scrollBtn.setAttribute("id", "scroll-btn");
-                document.body.appendChild(scrollBtn);
-                scrollBtn.classList.add("show");
-                scrollBtn.addEventListener("click", function(){
-                    location.href='/chatbot';
-                });
-                const scrollBtn2 = document.createElement("button");
-                scrollBtn2.innerHTML = "1:1";
-                scrollBtn2.setAttribute("id", "scroll-btn2");
-                document.body.appendChild(scrollBtn2);
-                scrollBtn2.classList.add("show");
-                scrollBtn2.addEventListener("click", function(){
-                    location.href='/callcenter';
-                });
-            }
-        };
-
-        $(function(){
-            chatbtn.init();
+let chatbtn = {
+    init:function(){
+        const scrollBtn = document.createElement("button");
+        scrollBtn.innerHTML = "chatbot";
+        scrollBtn.setAttribute("id", "scroll-btn");
+        document.body.appendChild(scrollBtn);
+        scrollBtn.classList.add("show");
+        scrollBtn.addEventListener("click", function(){
+            location.href='/chatbot';
         });
+        const scrollBtn2 = document.createElement("button");
+        scrollBtn2.innerHTML = "1:1";
+        scrollBtn2.setAttribute("id", "scroll-btn2");
+        document.body.appendChild(scrollBtn2);
+        scrollBtn2.classList.add("show");
+        scrollBtn2.addEventListener("click", function(){
+            location.href='/callcenter';
+        });
+    }
+};
 
-    </script>
+$(function(){
+    chatbtn.init();
+});
+
+</script>
 </head>
-<body>
 
-<nav class="navbar navbar-inverse">
+
+<body>
+<header>
+<%--<nav class="navbar navbar-inverse">--%>
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -147,8 +223,8 @@
             </button>
             <a class="navbar-brand" href="/">Logo</a>
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
+        <div class="collapse navbar-collapse" id="myNavbar" >
+            <ul class="nav navbar-nav gnb" style="z-index: 999;">
                 <li><a href="/">Home</a></li>
                 <c:if test="${logincust != null}"> <%--로그인커스트(로그인한경우) 에만 보이게 해라--%>
                     <li><a href="/jsp">JSP</a></li>
@@ -162,6 +238,7 @@
                     <li><a href="#">Contact</a></li>
                 </c:if>
             </ul>
+
             <c:choose>
                 <c:when test="${logincust == null}">
                     <ul class="nav navbar-nav navbar-right">
@@ -187,7 +264,8 @@
             </c:choose>
         </div>
     </div>
-</nav>
+<%--</nav>--%>
+</header>
 
 <div class="container-fluid text-center">
     <div class="row content">

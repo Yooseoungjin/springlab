@@ -2,6 +2,7 @@ package com.kbstar.controller;
 
 import com.kbstar.dto.Cust;
 import com.kbstar.service.CustService;
+import com.kbstar.util.Name;
 import com.kbstar.util.TodayFlowerUtil;
 import com.kbstar.util.WeatherUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -233,8 +234,16 @@ public class MainController {
     }
 
     @RequestMapping("/s")
-    public String s(){
-
+    public String s(Model model){
         return "s";
     }
+
+    @RequestMapping("/nametest")
+    public String nametest(Model model) throws Exception {
+
+        Object result = Name.namexml();
+        model.addAttribute("Name", result);
+        return "nametest";
+    }
+
 }

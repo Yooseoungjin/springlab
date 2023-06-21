@@ -52,7 +52,7 @@
 
     $(function (){
         map01.init();
-    })
+    });
 
 </script>
 
