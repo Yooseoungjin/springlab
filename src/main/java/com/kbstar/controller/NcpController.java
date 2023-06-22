@@ -171,6 +171,23 @@ public class NcpController {
         model.addAttribute("result",map);
         model.addAttribute("center","pic");
 
+        //NPC에게 물어본다
+        JSONObject result2 =
+                (JSONObject) cfrCelebrityUtil.getResult(imgpath,imgname);
+
+        JSONArray faces2 = (JSONArray)result2.get("faces");
+        int length = (faces2 != null) ? faces2.size() : 0;
+        log.info(String.valueOf(length));
+
+        JSONObject obj2 = (JSONObject)faces2.get(0);
+        JSONObject celebrity = (JSONObject)obj2.get("celebrity");
+        String value = (String)celebrity.get("value");
+        Double confidence = (Double)celebrity.get("confidence");
+
+        //결과를 받는다.
+        model.addAttribute("result2",value);
+        model.addAttribute("result3",confidence);
+
         Random r = new Random();
         int i = r.nextInt(365)+1;
         String date = Integer.toString(i);

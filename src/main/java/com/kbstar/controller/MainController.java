@@ -233,11 +233,6 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping("/s")
-    public String s(Model model){
-        return "s";
-    }
-
     @RequestMapping("/nametest")
     public String nametest(Model model) throws Exception {
 
@@ -245,5 +240,13 @@ public class MainController {
         model.addAttribute("Name", result);
         return "nametest";
     }
+    @RequestMapping("/test")
+    public String test(Model model){
+        return "test";
+    }
 
+    @RequestMapping("/test1")
+    public String test1(Model model){
+        return "test1";
+    }
 }

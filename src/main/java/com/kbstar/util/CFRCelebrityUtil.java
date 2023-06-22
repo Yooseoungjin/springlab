@@ -14,16 +14,18 @@ import java.net.URLConnection;
 
 @Component
 public class CFRCelebrityUtil {
-    @Value("${cfr_id}")
-    String cfr_id;
-    @Value("${cfr_key}")
-    String cfr_key;
+//    @Value("${cfr_id}")
+//    String cfr_id;
+//    @Value("${cfr_key}")
+//    String cfr_key;
     public Object getResult(String imgpath, String imgname) throws ParseException {
         String result = "";
 
         StringBuffer reqStr = new StringBuffer();
-        String clientId = cfr_id;//애플리케이션 클라이언트 아이디값";
-        String clientSecret = cfr_key;;//애플리케이션 클라이언트 시크릿값";
+//        String clientId = cfr_id;//애플리케이션 클라이언트 아이디값";
+//        String clientSecret = cfr_key;;//애플리케이션 클라이언트 시크릿값";
+        String clientId = "zskg2zjz76";//애플리케이션 클라이언트 아이디값";
+        String clientSecret = "ax2TAufwKVVdq7ThZL7xD8FaUM5wxp5okbRos154";;//애플리케이션 클라이언트 시크릿값";
 
         try {
             String paramName = "image"; // 파라미터명은 image로 지정

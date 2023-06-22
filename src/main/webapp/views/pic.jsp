@@ -81,4 +81,6 @@
     <h2>${result.gender}</h2>
     <h2>${result.age}</h2>
     ${yourlower.flowerName}
+    <h2>${result2}</h2>
+    <h2>${result3}</h2>
 </div>

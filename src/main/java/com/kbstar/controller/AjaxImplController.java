@@ -128,13 +128,13 @@ public class AjaxImplController {
     @RequestMapping("/getcal")
     public Object getcal(){
         List<Cal> list= new ArrayList<>();
-        list.add(new Cal("title1","2023-05-01T15:00","2023-05-22","1","/cust"));
+        list.add(new Cal("title1","2023-05-01T15:00","","1","/cust"));
         list.add(new Cal("aa","2023-05-03T15:00","","2","/cust"));
         list.add(new Cal("ss","2023-05-06T15:00","","1","/cust"));
         list.add(new Cal("ss","2023-05-06T16:00","","3","/cust"));
         list.add(new Cal("ss","2023-05-06T17:00","","3","/cust"));
         list.add(new Cal("ss","2023-05-06T19:00","","2","/cust"));
-        list.add(new Cal("유성진","2023-05-011T19:00","","2","/cust"));
+        list.add(new Cal("유성진","2023-05-29","","2","/cust"));
         // Java Object ---> JSON
         // JSON(JavaScript Object Notation)
         // [{},{},{},...]
