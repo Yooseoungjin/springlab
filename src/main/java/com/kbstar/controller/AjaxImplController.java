@@ -9,6 +9,7 @@ import com.kbstar.service.CustService;
 import com.kbstar.service.MarkerService;
 import com.kbstar.util.DateUtil;
 import com.kbstar.util.FileUploadUtil;
+import com.kbstar.util.SendMailUtil;
 import com.kbstar.util.WeatherUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.json.simple.JSONArray;
@@ -32,6 +33,8 @@ public class AjaxImplController {
     CustService custService;
     @Autowired
     CartService cartService;
+    @Autowired
+    SendMailUtil sendMailUtil;
 
     @Value("${uploadimgdir}")
     String imgdir;
@@ -63,12 +66,12 @@ public class AjaxImplController {
     @RequestMapping("/getdata")
     public Object getdata(){
         List<Cust> list = new ArrayList<>();
-        list.add(new Cust("id01","pwd01","james1"));
-        list.add(new Cust("id02","pwd02","james2"));
-        list.add(new Cust("id03","pwd03","james3"));
-        list.add(new Cust("id04","pwd04","james4"));
-        list.add(new Cust("id05","pwd05","james5"));
-        list.add(new Cust("id06","pwd06","james6"));
+        list.add(new Cust("id01","pwd01","james1","james1"));
+        list.add(new Cust("id02","pwd02","james2","james1"));
+        list.add(new Cust("id03","pwd03","james3","james1"));
+        list.add(new Cust("id04","pwd04","james4","james1"));
+        list.add(new Cust("id05","pwd05","james5","james1"));
+        list.add(new Cust("id06","pwd06","james6","james1"));
 
         // JSON Object ----> JSON
         // JSON(JavaScript Object Natation)
@@ -242,6 +245,14 @@ public class AjaxImplController {
             ja.add("01:00");
         }
         return ja;
+    }
+    // 이메일 인증
+    @RequestMapping("/mailConfirm")
+    public Object mailConfirm(String email) throws Exception {
+        String code;
+        code = sendMailUtil.sendAuthMessage(email,"테스트 성공");
+        System.out.println("인증코드 : " + code);
+        return code;
     }
 
 }

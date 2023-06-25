@@ -30,7 +30,7 @@ public class JSPController {
     public String jsp01(Model model){
         model.addAttribute("num",10000.234);
 
-        Cust cust = new Cust("id01","pwd01","<a href=''>K</a>");
+        Cust cust = new Cust("id01","pwd01","<a href=''>K</a>","eamil1");
         model.addAttribute("cust",cust);
 
         Date date = new Date();
@@ -43,7 +43,7 @@ public class JSPController {
 
     @RequestMapping("/jsp02")
     public String jsp02(Model model){
-        Cust cust = new Cust("id01","pwd01","james");
+        Cust cust = new Cust("id01","pwd01","james","email");
         model.addAttribute("rcust",cust);
         model.addAttribute("num",1);
         model.addAttribute("left",dir+"left");
@@ -54,11 +54,11 @@ public class JSPController {
     @RequestMapping("/jsp03")
     public String jsp03(Model model){
         List<Cust> list = new ArrayList<>();
-        list.add(new Cust("id01","pwd01","james1"));
-        list.add(new Cust("id02","pwd02","james2"));
-        list.add(new Cust("id03","pwd03","james3"));
-        list.add(new Cust("id04","pwd04","james4"));
-        list.add(new Cust("id05","pwd05","james5"));
+        list.add(new Cust("id01","pwd01","james1","james1"));
+        list.add(new Cust("id02","pwd02","james2","james1"));
+        list.add(new Cust("id03","pwd03","james3","james1"));
+        list.add(new Cust("id04","pwd04","james4","james1"));
+        list.add(new Cust("id05","pwd05","james5","james1"));
 
         model.addAttribute("clist", list);
 

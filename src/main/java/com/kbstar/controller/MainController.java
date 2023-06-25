@@ -3,6 +3,7 @@ package com.kbstar.controller;
 import com.kbstar.dto.Cust;
 import com.kbstar.service.CustService;
 import com.kbstar.util.Name;
+import com.kbstar.util.SendMailUtil;
 import com.kbstar.util.TodayFlowerUtil;
 import com.kbstar.util.WeatherUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +14,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
@@ -31,6 +35,9 @@ public class MainController {
 
     @Autowired
     CustService custService;
+
+    @Autowired
+    SendMailUtil sendMailUtil;
     Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     @RequestMapping("/")
@@ -127,6 +134,7 @@ public class MainController {
         try {
             cust.setPwd(encoder.encode(cust.getPwd()));
             custService.register(cust);
+//            sendMailUtil.sendAuthMessage("yuzi_yuzi@naver.com","테스트성공 축하드립니다.");
             session.setAttribute("logincust",cust); //회원가입즉시 로그인처리!!!!!!!!!
 
         } catch (Exception e) {
@@ -136,6 +144,8 @@ public class MainController {
         model.addAttribute("center", "registerok");
         return "index";
     }
+
+
 
     @RequestMapping("/register")
     public String register(Model model) {
@@ -248,5 +258,9 @@ public class MainController {
     @RequestMapping("/test1")
     public String test1(Model model){
         return "test1";
+    }
+    @RequestMapping("/test2")
+    public String test2(Model model){
+        return "test2";
     }
 }

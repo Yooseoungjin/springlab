@@ -48,7 +48,7 @@ public class CustController {
     }
     @RequestMapping("/get")
     public String get(Model model, String id){
-        Cust cust = new Cust(id,"xxx","james");
+        Cust cust = new Cust(id,"xxx","james","james1");
         model.addAttribute("gcust",cust);
         model.addAttribute("left",dir+"left");
         model.addAttribute("center",dir+"get");

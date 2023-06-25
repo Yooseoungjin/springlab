@@ -5,17 +5,58 @@
 <script>
     let register_form = {
         init:function (){
-            $('#register_btn').addClass('disabled');
+            // $('#register_btn').addClass('disabled');
+            $("#register_btn").attr("disabled", true);
             $('#register_btn').click(function (){
                 register_form.send();
             });
+
+            $('#checkEmail').click(function() {
+                var email_txt = $('#email').val()
+                $.ajax({
+                    // type : 'POST',
+                    url : '/mailConfirm',
+                    data : {"email" : email_txt},
+                    success : function(data){
+                        alert("해당 이메일로 인증번호 발송이 완료되었습니다. \n 확인부탁드립니다.")
+                        console.log("data : "+data);
+                        chkEmailConfirm(data, $('#emailconfirm'), $('#emailconfirmTxt'));
+                    }
+                })
+            })
+            // 이메일 인증번호 체크 함수
+            function chkEmailConfirm(data/*,$('#emailconfirm'), $('#emailconfirmTxt')*/){
+                $('#emailconfirm').on("keyup", function(){
+                    if (data != $('#emailconfirm').val()){ //
+                        emconfirmchk = false;
+                        $('#emailconfirmTxt').html("<span id='emconfirmchk'>인증번호가 잘못되었습니다</span>")
+                        $("#register_btn").attr("disabled", true);
+                        $("#emconfirmchk").css({
+                            "color" : "#FA3E3E",
+                            "font-weight" : "bold",
+                            "font-size" : "10px"
+                        })
+
+                    } else {
+                        emconfirmchk = true;
+                        $('#emailconfirmTxt').html("<span id='emconfirmchk'>인증번호 확인 완료</span>")
+                        $("#register_btn").attr("disabled", false);
+                        $("#emconfirmchk").css({
+                            "color" : "#0D6EFD",
+                            "font-weight" : "bold",
+                            "font-size" : "10px"
+                        })
+
+                    }
+                })
+            }
             $('#name').keyup(function () {
                 var id = $('#id').val();
                 var pwd = $('#pwd').val();
                 var name = $('#name').val();
-                if (id != '' && pwd != '' && name != '') {
-                    $('#register_btn').removeClass('disabled')
-                }
+                // if (id != '' && pwd != '' && name != '') {
+                //     $('#register_btn').removeClass('disabled')
+                // }
             });
 
                 $('#id').keyup(function (){
@@ -63,8 +104,6 @@
         }
     };
 
-
-
     // 화면에 접속 되면 로그인폼 객체에 이닛을 출력해라
     $(function (){
         register_form.init();
@@ -87,9 +126,19 @@
           </div>
 
           <div class="form-group">
-              <input type="name" class="form-control" id="name" name="name" placeholder="name" >
+              <input type="text" class="form-control" id="name" name="name" placeholder="name" >
           </div>
 
+          <div class="form-group">
+              <input type="text" class="form-control" id="email" name="email" placeholder="email" >
+          </div>
+          <!-- <span>이메일 인증번호</span> -->
+          <button class="btn btn-outline-primary" type="button" id="checkEmail">인증번호 받기</button>
+
+          <div class="form-group last mb-4 check_input">
+              <label for="emailconfirm" id="emailconfirmTxt">인증번호를 입력해주세요</label>
+              <input type="text" class="form-control" id="emailconfirm">
+          </div>
               <div>
                   <button type="button" id="register_btn" class="btn btn-primary">Regsiter</button>
               </div>

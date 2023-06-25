@@ -36,8 +36,6 @@
         }
     };
 
-
-
     // 화면에 접속 되면 로그인폼 객체에 이닛을 출력해라
     $(function (){
         custinfo_form.init();
@@ -60,7 +58,11 @@
           </div>
 
           <div class="form-group">
-              <input type="name" class="form-control" id="name" name="name" value="${custinfo.name}" >
+              <input type="text" class="form-control" id="name" name="name" value="${custinfo.name}" >
+          </div>
+
+          <div class="form-group">
+              <input type="text" class="form-control" id="email" name="email" value="${custinfo.email}" >
           </div>
 
               <div>

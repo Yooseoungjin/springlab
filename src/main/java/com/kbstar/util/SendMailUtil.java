@@ -17,11 +17,13 @@ public class SendMailUtil {
     JavaMailSender emailSender;
     @Value("${adminmail.id}")
     private String id;
+    private static String ePw; // 인증번호
+
     private MimeMessage createMessage(String to, String msg)throws Exception{
 
         MimeMessage message = emailSender.createMimeMessage();
 
-        message.addRecipients(Message.RecipientType.TO, to);//보내는 대상
+        message.addRecipients(Message.RecipientType.TO, to);//보내는 대상(===받는사람)
         message.setSubject("Kbstar 입니다.");//제목
 
         String msgg="";
@@ -34,7 +36,7 @@ public class SendMailUtil {
         msgg+= "<h3 style='color:blue;'>"+msg+"</h3>";
         msgg+= "</div>";
 
-                message.setText(msgg, "utf-8", "html");//내용
+        message.setText(msgg, "utf-8", "html");//내용
         message.setFrom(new InternetAddress(id,"kbstar"));//보내는 사람
 
         return message;
@@ -52,7 +54,6 @@ public class SendMailUtil {
     }
 
     private MimeMessage createAuthMessage(String to, String msg)throws Exception{
-        String ePw = createKey();
         MimeMessage message = emailSender.createMimeMessage();
 
         message.addRecipients(Message.RecipientType.TO, to);//보내는 대상
@@ -104,8 +105,11 @@ public class SendMailUtil {
         return key.toString();
     }
 
-    public void sendAuthMessage(String to, String msg)throws Exception {
+    public String sendAuthMessage(String to, String msg)throws Exception {
+
+        ePw = createKey(); // 랜덤 인증번호 생성
         // TODO Auto-generated method stub
+
         MimeMessage message = createAuthMessage(to,msg);
         try{//예외처리
             emailSender.send(message);
@@ -113,5 +117,6 @@ public class SendMailUtil {
             es.printStackTrace();
             throw new IllegalArgumentException();
         }
+        return ePw; // 메일로 보냈던 인증 코드를 서버로 반환
     }
 }

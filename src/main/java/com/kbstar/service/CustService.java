@@ -22,8 +22,7 @@ public class CustService implements KBService<String, Cust> {
     @Override
     public void register(Cust cust) throws Exception {
         mapper.insert(cust);
-        //mapper.insert(cust);
-        log.info("Send Mail .........."+cust.getId());
+        log.info("Send Mail .........."+cust.getId()); // 메일 보냈다는 것을 로그에 찍어보는것..별 의미는 없음
     }
 
     @Override

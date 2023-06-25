@@ -17,7 +17,7 @@ class UpdateTest {
 void contextLoads() {
 
     try {
-        service.modify(new Cust("id01","pwd05","하하하"));
+        service.modify(new Cust("id01","pwd05","하하하","t"));
         } catch (Exception e) {
         log.info("업데이트 에러......");
         e.printStackTrace();

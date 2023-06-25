@@ -16,7 +16,7 @@ class InsertTest {
     CustService service;
     @Test
     void contextLoads() {
-        Cust obj = new Cust("id09","pwd03","심말숙");
+        Cust obj = new Cust("id09","pwd03","심말숙","t");
         try {
             service.register(obj);
             log.info("등록이 되었다");
