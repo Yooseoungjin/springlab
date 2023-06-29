@@ -263,4 +263,9 @@ public class MainController {
     public String test2(Model model){
         return "test2";
     }
+//
+//    @RequestMapping("/message_list")
+//    public String message_list(Model model){
+//        return "message/message_list";
+//    }
 }
