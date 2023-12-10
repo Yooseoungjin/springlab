@@ -9,7 +9,6 @@
                 <form action="/cust/findimpl" method="get">
                     <div>
                         <select name="keyword" id="keyword">
-
                             <option value="id" <c:if test="${search.keyword == 'id'}">selected</c:if>>ID</option>
                             <option value="name" <c:if test="${search.keyword == 'name'}">selected</c:if>>NAME</option>
                         </select>

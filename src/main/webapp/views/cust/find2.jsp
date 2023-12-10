@@ -35,8 +35,8 @@
                 <c:if test="${cpage.getList() == null}">
                     <h4>데이터가 없습니다.</h4>
                 </c:if>
-                <jsp:include page="../findpage2.jsp"/>
+<%--                <jsp:include page="../findpage2.jsp"/>--%>
             </div>
-        </div> <!-- -->
+        </div>
     </div>
 </div>

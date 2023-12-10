@@ -252,20 +252,19 @@ public class MainController {
     }
     @RequestMapping("/test")
     public String test(Model model){
+
         return "test";
     }
 
     @RequestMapping("/test1")
     public String test1(Model model){
+
         return "test1";
     }
     @RequestMapping("/test2")
     public String test2(Model model){
+
         return "test2";
     }
-//
-//    @RequestMapping("/message_list")
-//    public String message_list(Model model){
-//        return "message/message_list";
-//    }
+
 }

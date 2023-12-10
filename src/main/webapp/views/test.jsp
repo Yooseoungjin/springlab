@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <style>
     :root {
         --card-height: 300px;
@@ -121,8 +122,28 @@
         <div class="wrapper">
             <img src="uimg/a.jpg" class="cover-image" />
         </div>
-        <img src="uimg/ikeyo.png" class="title" />
+        <img src="uimg/img1.png" class="title" />
         <img src="https://ggayane.github.io/css-experiments/cards/dark_rider-character.webp" class="character" />
+    </div>
+</a>
+
+<a href="https://www.mythrillfiction.com/force-mage" alt="Mythrill" target="_blank">
+    <div class="card">
+        <div class="wrapper">
+            <img src="https://ggayane.github.io/css-experiments/cards/force_mage-cover.jpg" class="cover-image" />
+        </div>
+        <img src="https://ggayane.github.io/css-experiments/cards/force_mage-title.png" class="title" />
+        <img src="https://ggayane.github.io/css-experiments/cards/force_mage-character.webp" class="character" />
+    </div>
+</a>
+
+<a href="https://www.mythrillfiction.com/force-mage" alt="Mythrill" target="_blank">
+    <div class="card">
+        <div class="wrapper">
+            <img src="https://ggayane.github.io/css-experiments/cards/force_mage-cover.jpg" class="cover-image" />
+        </div>
+        <img src="https://ggayane.github.io/css-experiments/cards/force_mage-title.png" class="title" />
+        <img src="https://ggayane.github.io/css-experiments/cards/force_mage-character.webp" class="character" />
     </div>
 </a>
 

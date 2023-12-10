@@ -167,10 +167,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
-<div class="css">
-    <span>C</span>
-    <span>S</span>
-    <span>S</span>
+<div style="margin: 0px">
+    <span style="color: white; margin-bottom: 0px">Team</span>
+</div>
+<div class="css" style="margin: 0px">
+    <span>F</span>
+    <span>4</span>
 </div>
 </body>
 </html>

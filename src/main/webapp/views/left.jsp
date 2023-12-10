@@ -103,6 +103,9 @@
         <p><a href="/cal5">cal5</a></p>
         <p><a href="/cal6">cal6</a></p>
         <p><a href="/todayflower">todayflower</a></p>
+        <p><a href="/test">test</a></p>
+        <p><a href="/test1">test1</a></p>
+        <p><a href="/test2">test2</a></p>
     </div>
 </body>
 </html>

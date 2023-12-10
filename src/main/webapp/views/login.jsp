@@ -16,7 +16,7 @@
 
           <form id="login_form" class="form-horizontal well">
               <div class="form-group">
-                  <input type="ID" class="form-control" id="id" name="id" placeholder="Enter Your ID" value="id111">
+                  <input type="ID" class="form-control" id="id" name="id" placeholder="Enter Your ID" value="yuziyuzi">
               </div>
 
               <div class="form-group">
